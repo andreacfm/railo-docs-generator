@@ -1,4 +1,4 @@
-<cfcomponent extends="org.corfield.framework" output="false">
+component extends="org.corfield.framework" output="false"{
 	
 	<!--- framework defaults (as struct literal):
 	variables.framework = {
@@ -55,10 +55,17 @@
 		applicationKey = 'org.corfield.framework'
 	};
 	--->
-	
-	<cffunction name="setupRequest">
-		<!--- use setupRequest to do initialization per request --->
-		<cfset request.context.startTime = getTickCount() />
-	</cffunction>
-	
-</cfcomponent>
+
+    import "org.getrailo.*";
+
+    function setupRequest(){
+            request.context.startTime = getTickCount();
+    }
+
+
+    function onApplicationStart(){
+        super.onApplicationStart();
+        application.beanFactory = new Ioc("/org/getrailo/docs");
+    }
+
+}
