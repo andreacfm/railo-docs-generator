@@ -1,14 +1,31 @@
+<cfoutput>
 <html>
 	<head>
-		<!--- title set by a view - there is no default --->
-		<title>FW/1 Skeleton - <cfoutput>#rc.title#</cfoutput></title>
+		<title>Railo Docs</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css"/>
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
 	</head>
 	<body>
-		<h1>FW/1 Default Layout</h1>
-		<cfoutput>#body#</cfoutput>	<!--- body is result of views --->
-		<p style="font-size: small;">
-			Powered by FW/1 version <cfoutput>#variables.framework.version#</cfoutput>.<br />
-			This request took <cfoutput>#getTickCount() - rc.startTime#</cfoutput>ms.
-		</p>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li><a href="#buildUrl('tags')#">Tags</a></li>
+                        <li><a href="/functions">Functions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            #body#	<!--- body is result of views --->
+        </div>
 	</body>
 </html>
+</cfoutput>

@@ -30,5 +30,12 @@ public class DocsRepo {
         return repo;
     }
 
+    /**
+     *
+     * @return false if there new remote commit to be pulled
+     */
+    public Boolean isUpToDate(){
+        return true;
+    }
 
 }

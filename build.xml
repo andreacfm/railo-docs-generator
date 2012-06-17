@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Railo Docs" basedir="" default="compile">
+
+    <target name="compile" depends="createJar"/>
+
+    <target name="createJar">
+        <path id="master-classpath">
+            <fileset dir="lib/">
+                <include name="*.jar"/>
+            </fileset>
+        </path>
+        <javac srcdir="${basedir}/src/" destdir="${basedir}/bin/">
+            <classpath refid="master-classpath"/>
+        </javac>
+        <jar basedir="${basedir}/bin/" destfile="${basedir}/lib/railo-docs-repo.jar" />
+    </target>
+
+
+</project>

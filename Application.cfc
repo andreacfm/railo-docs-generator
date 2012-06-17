@@ -57,15 +57,16 @@ component extends="org.corfield.framework" output="false"{
 	--->
 
     import "org.getrailo.*";
+    variables.framework.generateSES = true;
 
     function setupRequest(){
-            request.context.startTime = getTickCount();
+            //request.context.startTime = getTickCount();
     }
 
 
-    function onApplicationStart(){
-        super.onApplicationStart();
-        application.beanFactory = new Ioc("/org/getrailo/docs");
+    function setupApplication(){
+        setBeanFactory(new Ioc("/org/getrailo/docs"));
+        getBeanFactory().load();
     }
 
 }
