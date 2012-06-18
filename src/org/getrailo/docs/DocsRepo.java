@@ -1,7 +1,10 @@
 package org.getrailo.docs;
 
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.storage.file.FileRepository;
+import org.gitective.core.CommitUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,12 +33,19 @@ public class DocsRepo {
         return repo;
     }
 
+
+    public void pull(){
+        new Git(this.repo).pull();
+    }
+
     /**
      *
      * @return false if there new remote commit to be pulled
      */
-    public Boolean isUpToDate(){
-        return true;
+    public Boolean isUpToDate() throws IOException{
+        RevCommit latestLocalCommit = CommitUtils.getHead(this.repo);
+        RevCommit latestRemoteCommit = CommitUtils.getRef(this.repo, "refs/remotes/origin/master");
+        return latestLocalCommit == latestRemoteCommit;
     }
 
 }

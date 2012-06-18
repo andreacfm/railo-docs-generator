@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Railo Docs" basedir="" default="compile">
+<project name="Railo Docs" basedir="" default="pack">
 
-    <target name="compile" depends="createJar"/>
 
     <target name="createJar">
         <path id="master-classpath">
@@ -13,6 +12,18 @@
             <classpath refid="master-classpath"/>
         </javac>
         <jar basedir="${basedir}/bin/" destfile="${basedir}/lib/railo-docs-repo.jar" />
+    </target>
+
+    <target name="pack" depends="createJar">
+        <war destfile="${basedir}/out/railo-docs.war" webxml="${basedir}/WEB-INF/web.xml">
+            <fileset dir="${basedir}">
+                <exclude name="src/"/>
+                <exclude name="bin/"/>
+                <exclude name="out/"/>
+                <exclude name=".idea/"/>
+                <exclude name="*.iml"/>
+            </fileset>
+        </war>
     </target>
 
 

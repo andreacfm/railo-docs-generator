@@ -6,10 +6,7 @@ component output="false"{
    }
 
    function search(rc){
-        var list = getTagList().cf;
-        var arr = StructKeyArray(list);
-        ArraySort(arr,'textnocase');
-        rc.tags = arr;
+        variables.fw.service('tags.filter', 'tags');
    }
 
    function view(rc){
