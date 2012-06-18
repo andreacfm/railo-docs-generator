@@ -1,30 +1,33 @@
 component{
 
     function filter(){
-        var res = [];
         var list = getTagList().cf;
-        var tags = StructKeyArray(list);
-        ArraySort(tags,'textnocase');
-
-        for(tag in tags){
-            if(find("_", tag)){
-                tags.remove(tag);
-            }
-        }
+        var tags = clean(StructKeyArray(list));
+        var result = [];
 
         if(len(trim(criteria))){
             for(tag in tags){
                 if(findNoCase(criteria, tag) eq 1){
-                    res.add(tag);
+                    result.add(tag);
                 }
             }
-        }else{
-            res = tags;
+         }else{
+            result = tags;
         }
 
+        ArraySort(result,'textnocase');
+        return result;
 
+    }
+
+
+    private function clean(Array tags){
+        for(tag in tags){
+            if(find("_", tag)){
+               ArrayDelete(tags, tag);
+            }
+        }
         return tags;
-
     }
 
 }
