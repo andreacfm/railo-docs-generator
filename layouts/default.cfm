@@ -3,10 +3,17 @@
     <head>
 		<title>Railo Docs</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://yandex.st/highlightjs/7.0/highlight.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+            });        </script>
         <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
         <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css"/>
+        <link rel="stylesheet" href="/stylesheets/application.css"/>
+        <link rel="stylesheet" href="/stylesheets/github.css"/>
         <style type="text/css">
             body {
                 padding-top: 60px;

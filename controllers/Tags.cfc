@@ -6,15 +6,20 @@ component output="false"{
    }
 
    function search(rc){
+        request.layout = false;
         variables.fw.service('tags.filter', 'tags');
    }
 
    function view(rc){
-       dump(rc);
-       abort;
-       var tagName = replace(rc.tag, "cf", "");
-       rc.tagData = getTagData("cf", tagName);
-   }
+       rc.tagData = getTagData("cf", replace(rc.tag, "cf", ""));
+       rc.tagName = rc.tagData.namespace&rc.tagData.namespaceseperator&rc.tagData.name;
+       if(rc.tagData.hasNameAppendix){
+            rc.tagName = rc.tagName&="CustomName";
+       }
+       rc.arrAttrNames = StructKeyArray(rc.tagData.attributes);
+       ArraySort(rc.arrAttrNames ,'textnocase');
+
+    }
 
 }
 

@@ -1,0 +1,8 @@
+div#searchResult a{
+    margin:3px;
+}
+
+div.code .error{color:red;}
+div.code .syntaxTag{color:#993300;}
+div.code .syntaxText {color:#CC0000;}
+div.code .syntaxAttr {color:#000099;}
