@@ -1,4 +1,6 @@
-component{
+component accessors="true"{
+
+    property name="markdown";
 
     function filter(){
         var list = getTagList().cf;
@@ -20,6 +22,22 @@ component{
 
     }
 
+    function intro(){
+        var path = expandPath("/repo/tags/#arguments.tagName#/intro.md");
+        return pathToHtml(path);
+    }
+
+    function examples(){
+        var path = expandPath("/repo/tags/#arguments.tagName#/examples.md");
+        return pathToHtml(path);
+    }
+
+    private function pathToHtml(path){
+        if(fileExists(path)){
+            res = getmarkdown().toHtml(fileRead(path));
+        }
+        return res;
+    }
 
     private function clean(Array tags){
         for(tag in tags){

@@ -1,6 +1,8 @@
 <cfinclude template="_description.cfm"/>
+<cfoutput>#rc.intro#</cfoutput>
 <cfinclude template="_code.cfm"/>
 <cfinclude template="_attributes.cfm"/>
+<cfoutput>#rc.examples#</cfoutput>
 
 <!---
 <cfif structKeyExists(data,"script") and data.script.type NEQ "none">

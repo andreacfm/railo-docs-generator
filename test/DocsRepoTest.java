@@ -1,5 +1,3 @@
-package test;
-
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.*;
@@ -9,9 +7,7 @@ import org.getrailo.docs.DocsRepo;
 import org.junit.*;
 import junit.framework.JUnit4TestAdapter;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import static org.junit.Assert.*;
 

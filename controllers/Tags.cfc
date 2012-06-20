@@ -19,6 +19,8 @@ component output="false"{
        rc.arrAttrNames = StructKeyArray(rc.tagData.attributes);
        ArraySort(rc.arrAttrNames ,'textnocase');
 
+       variables.fw.service('tags.intro', 'intro');
+       variables.fw.service('tags.examples', 'examples');
     }
 
 }

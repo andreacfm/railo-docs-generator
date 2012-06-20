@@ -4,14 +4,14 @@
 
     <target name="createJar">
         <path id="master-classpath">
-            <fileset dir="lib/">
+            <fileset dir="${basedir}/lib/">
                 <include name="*.jar"/>
             </fileset>
         </path>
         <javac srcdir="${basedir}/src/" destdir="${basedir}/bin/">
             <classpath refid="master-classpath"/>
         </javac>
-        <jar basedir="${basedir}/bin/" destfile="${basedir}/lib/railo-docs-repo.jar" />
+        <jar basedir="${basedir}/bin/" destfile="${basedir}/lib/railo-docs.jar" />
     </target>
 
     <target name="pack" depends="createJar">
@@ -25,6 +25,12 @@
             </fileset>
         </war>
     </target>
+
+
+    <target name="toRailoLib" depends="createJar">
+        <copy file="lib/railo-docs.jar" todir="WEB-INF/railo/lib" overwrite="true"/>
+    </target>
+
 
 
 </project>
