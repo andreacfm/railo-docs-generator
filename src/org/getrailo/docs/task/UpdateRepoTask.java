@@ -1,22 +1,22 @@
 package org.getrailo.docs.task;
 
-import org.getrailo.docs.DocsRepo;
+import org.getrailo.docs.DocsEngine;
 
 import java.io.IOException;
 import java.util.TimerTask;
 
 public class UpdateRepoTask extends TimerTask {
 
-    DocsRepo repo;
+    DocsEngine engine;
 
-    public UpdateRepoTask(DocsRepo repo) {
-        this.repo = repo;
+    public UpdateRepoTask(DocsEngine engine) {
+        this.engine = engine;
     }
 
     @Override
     public void run() {
         try {
-            repo.update();
+            engine.update();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,6 +11,9 @@ component extends="org.corfield.framework" output="false"{
 
 
     function setupApplication(){
+        createObject("java", "org.eclipse.jgit.api.Git", "lib/jgit.jar");
+        createObject("java", "org.getrailo.docs.DocsEngine", "lib/railo-docs.jar");
+        createObject("java", "org.gitective.core.CommitUtils", "lib/gitective-core-0.9.9.jar");
         setBeanFactory(new Ioc("/org/getrailo/docs"));
         getBeanFactory().load();
     }

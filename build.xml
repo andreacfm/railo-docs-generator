@@ -26,11 +26,4 @@
         </war>
     </target>
 
-
-    <target name="toRailoLib" depends="createJar">
-        <copy file="lib/railo-docs.jar" todir="WEB-INF/railo/lib" overwrite="true"/>
-    </target>
-
-
-
 </project>

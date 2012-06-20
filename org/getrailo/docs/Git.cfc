@@ -7,7 +7,7 @@ component accessors="true"{
 
     public void function init(){
         //var jars = "/lib/jgit.jar, /lib/railo-docs-repo.jar, /lib/jgit.ant.jar";
-        variables.repo = createObject("java", "org.getrailo.docs.DocsRepo");
+        variables.repo = createObject("java", "org.getrailo.docs.DocsEngine");
         variables.repo.init(variables.LOCAL_PATH, variables.REMOTE_PATH);
     }
 

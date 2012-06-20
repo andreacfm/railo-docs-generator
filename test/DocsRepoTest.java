@@ -3,7 +3,7 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.*;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
-import org.getrailo.docs.DocsRepo;
+import org.getrailo.docs.DocsEngine;
 import org.junit.*;
 import junit.framework.JUnit4TestAdapter;
 
@@ -17,7 +17,7 @@ public class DocsRepoTest {
     }
 
 
-    DocsRepo docsRepo;
+    DocsEngine docsRepo;
     String localPath;
     String remotePath;
 
@@ -34,7 +34,7 @@ public class DocsRepoTest {
                 .findGitDir()
                 .build();
 
-        docsRepo = new DocsRepo(localPath, remotePath);
+        docsRepo = new DocsEngine(localPath, remotePath);
     }
 
     @After
