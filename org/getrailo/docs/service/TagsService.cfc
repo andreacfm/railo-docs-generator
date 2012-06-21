@@ -23,16 +23,17 @@ component accessors="true"{
     }
 
     function intro(){
-        var path = expandPath("/repo/tags/#arguments.tagName#/intro.md");
+        var path = expandPath("#getContextRoot()#/repo/tags/#arguments.tagName#/intro.md");
         return pathToHtml(path);
     }
 
     function examples(){
-        var path = expandPath("/repo/tags/#arguments.tagName#/examples.md");
+        var path = expandPath("#getContextRoot()#/repo/tags/#arguments.tagName#/examples.md");
         return pathToHtml(path);
     }
 
     private function pathToHtml(path){
+        var res = "";
         if(fileExists(path)){
             res = getmarkdown().toHtml(fileRead(path));
         }

@@ -18,6 +18,7 @@
         <war destfile="${basedir}/out/railo-docs.war" webxml="${basedir}/WEB-INF/web.xml">
             <fileset dir="${basedir}">
                 <exclude name="src/"/>
+                <exclude name="repo/"/>
                 <exclude name="bin/"/>
                 <exclude name="out/"/>
                 <exclude name=".idea/"/>
