@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Railo Docs" basedir="" default="pack">
 
+    <target name="clean">
+        <delete dir="${basedir}/bin/" includes="*.class"/>
+        <delete dir="${basedir}/lib/" includes="railo-docs.jar"/>
+    </target>
 
-    <target name="createJar">
+    <target name="createJar" depends="clean">
         <path id="master-classpath">
             <fileset dir="${basedir}/lib/">
                 <include name="*.jar"/>
